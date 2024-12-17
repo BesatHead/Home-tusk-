@@ -1,12 +1,12 @@
 #Step 1
-name = 'Leonid'
-print(name)
+example = "Топинамбур"
 #Step 2
-age = 31
-print(age)
+print(example[0])
 #Step 3
-age = age + 14
-print(age)
+print(example[-1])
 #Step 4
-is_student = True
-print(is_student)
+print(example[5:])
+#Step 5
+print(example[: :-1])
+#Step 6
+print(example[1::2])
