@@ -4,6 +4,6 @@ students = {'Johnny', 'Bilbo', 'Steve', 'Khendrik', 'Aaron'}
 sorted_students = sorted(list(students))
 average_grades = {}
 for student, grade in zip(sorted_students, grades):
-    average = sum(grade) / len(grade) if grade else 0
+    average = sum(grade) / len(grade)
     average_grades[student] = average
 print(average_grades)
