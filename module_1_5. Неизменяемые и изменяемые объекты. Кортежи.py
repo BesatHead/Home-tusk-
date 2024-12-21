@@ -1,6 +1,6 @@
 # Задание №2
 immutable_var = 1, 2, 3, 'Порядковый номер'
-immutable_var_2 =1,2,[1,2,(3*2)]
+immutable_var_2 = 1,2,[1,2,(3*2)]
 print(immutable_var)
 print(immutable_var_2)
 # Задание №3
