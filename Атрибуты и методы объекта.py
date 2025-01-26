@@ -1,52 +1,52 @@
 class House:
-    def __init__(self, name, number_of_floors):
+    def __init__ (self, name, number_of_floors):
 
         self.name = name
         self.number_of_floors = number_of_floors
 
-    def go_to(self, new_floor):
+    def go_to (self, new_floor):
 
         if 1 <= new_floor <= self.number_of_floors:
             for floor in range(1, new_floor + 1):
                 print(floor)
         else:
-            print("Такого этажа не существует")
+            print ("Такого этажа не существует")
 
-    def __len__(self): # Специальные методы классов
-
+    def __len__ (self): # Специальные методы классов
         return self.number_of_floors
 
-    def __str__(self): # Специальные методы классов
-
+    def __str__ (self): # Специальные методы классов
         return f'Дом {self.name} имеет {self.number_of_floors} этажей'
 
-    def __eq__(self, other): # Перегрузка методов
+    def __eq__ (self, other): # Перегрузка методов
         return self.number_of_floors == other.number_of_floors
 
-    def __add__(self, other): # Перегрузка методов
+    def __add__ (self, other): # Перегрузка методов
         return House(self.name, self.number_of_floors + other)
 
-    def __iadd__(self, other): # Перегрузка методов
+    def __iadd__ (self, other): # Перегрузка методов
         self.number_of_floors += other
         return self
 
-    def __radd__(self, other): # Перегрузка методов
+    def __radd__ (self, other): # Перегрузка методов
         return House(self.name, self.number_of_floors + other)
 
-    def __gt__(self, other): # Перегрузка методов
+    def __gt__ (self, other): # Перегрузка методов
         return self.number_of_floors > other.number_of_floors
 
-    def __ge__(self, other): # Перегрузка методов
+    def __ge__ (self, other): # Перегрузка методов
         return self.number_of_floors >= other.number_of_floors
 
-    def __ne__(self, other): # Перегрузка методов
+    def __ne__ (self, other): # Перегрузка методов
         return self.number_of_floors != other.number_of_floors
-    def __lt__(self, other): # Перегрузка методов
+
+    def __lt__ (self, other): # Перегрузка методов
         return self.number_of_floors < other.number_of_floors
-    def __le__(self, other): # Перегрузка методов
+
+    def __le__ (self, other): # Перегрузка методов
         return self.number_of_floors <= other.number_of_floors
 
-print('___________Атрибуты и методы объекта_________________')  # Атрибуты и методы объекта
+print ('___________Атрибуты и методы объекта_________________')  # Атрибуты и методы объекта
 
 h1 = House('ЖК Горский', 18)
 h2 = House('Домик в деревне', 2)
@@ -88,7 +88,7 @@ print(h4)
 
 print(h3 > h4) # __gt__
 
-print(h3 >= h4) # __ge__
+print (h3 >= h4) # __ge__
 
 print(h3 < h4) # __lt__
 
