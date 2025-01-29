@@ -1,4 +1,12 @@
 class House:
+    houses_history = []
+
+    def __new__(cls, *args, **kwargs):
+        instance = super(House, cls).__new__(cls)
+        if len(args) > 0:
+            cls.houses_history.append(args[0])
+        return instance
+
     def __init__ (self, name, number_of_floors):
 
         self.name = name
@@ -21,15 +29,17 @@ class House:
     def __eq__ (self, other): # Перегрузка методов
         return self.number_of_floors == other.number_of_floors
 
-    def __add__ (self, other): # Перегрузка методов
-        return House(self.name, self.number_of_floors + other)
+    def __add__(self, other):  # Перегрузка методов
+        self.number_of_floors += other
+        return self
 
     def __iadd__ (self, other): # Перегрузка методов
         self.number_of_floors += other
         return self
 
-    def __radd__ (self, other): # Перегрузка методов
-        return House(self.name, self.number_of_floors + other)
+    def __radd__(self, other):  # Перегрузка методов
+        self.number_of_floors += other
+        return self
 
     def __gt__ (self, other): # Перегрузка методов
         return self.number_of_floors > other.number_of_floors
@@ -46,12 +56,17 @@ class House:
     def __le__ (self, other): # Перегрузка методов
         return self.number_of_floors <= other.number_of_floors
 
+    def __del__(self):
+        print(f"{self.name} снесён, но он останется в истории")
+
 print ('___________Атрибуты и методы объекта___________')  # Атрибуты и методы объекта
 
 h1 = House('ЖК Горский', 18)
 h2 = House('Домик в деревне', 2)
 h3 = House('ЖК Эльбрус', 10) # Специальные методы классов
 h4 = House('ЖК Акация', 20) # Специальные методы классов
+h5 = House('ЖК Матрёшки', 20) # Различие атрибутов класса и экземпляра
+
 
 h1.go_to(5)
 h2.go_to(10)
@@ -95,3 +110,10 @@ print(h3 < h4) # __lt__
 print(h3 <= h4) # __le__
 
 print(h3 != h4) # __ne__
+
+print ('___________Различие атрибутов класса и экземпляра___________') # Различие атрибутов класса и экземпляра
+
+del h4
+del h5
+
+print(House.houses_history)
